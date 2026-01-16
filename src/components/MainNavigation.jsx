@@ -12,7 +12,7 @@ const MainNavigation = () => {
     <Tile className="
       flex items-center justify-between
     ">
-      <h1 className="font-semibold text-lg">Simple Shop</h1>
+      <NavLink to="/" className="font-semibold text-lg">Simple Shop</NavLink>
       <input
         type="search"
         placeholder="Search products..."

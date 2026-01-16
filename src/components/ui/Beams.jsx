@@ -8,6 +8,7 @@ import { PerspectiveCamera } from '@react-three/drei';
 import { degToRad } from 'three/src/math/MathUtils.js';
 
 import '../.././index.css';
+import { div } from 'three/tsl';
 
 function extendMaterial(BaseMaterial, cfg) {
   const physical = THREE.ShaderLib.physical;
@@ -51,9 +52,11 @@ function extendMaterial(BaseMaterial, cfg) {
 }
 
 const CanvasWrapper = ({ children }) => (
+  <div className="w-screen h-screen fixed top-0 left-0 pointer-events-none z-0 bg-black">
   <Canvas dpr={[1, 2]} frameloop="always" className="beams-container">
     {children}
   </Canvas>
+  </div>
 );
 
 const hexToNormalizedRGB = hex => {
