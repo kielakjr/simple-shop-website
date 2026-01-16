@@ -1,7 +1,13 @@
 import React from 'react'
 import Tile from './ui/Tile'
+import { useDispatch, useSelector } from 'react-redux';
+import { authActions } from '../store/auth-slice';
+import { NavLink } from 'react-router-dom';
 
 const MainNavigation = () => {
+  const dispatch = useDispatch();
+  const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
+
   return (
     <Tile className="
       flex items-center justify-between
@@ -23,7 +29,31 @@ const MainNavigation = () => {
         "
       />
 
-      <p>Cart: 0 items</p>
+      {!isAuthenticated ? (
+        <NavLink to="/login" className="
+          px-4 py-2
+          bg-white/20 text-white
+          rounded-md
+          hover:bg-white/30
+          transition-colors duration-200
+        cursor-pointer
+      "
+      >
+        Log In
+      </NavLink>) : (
+        <button className="
+          px-4 py-2
+          bg-white/20 text-white
+          rounded-md
+          hover:bg-white/30
+          transition-colors duration-200
+        cursor-pointer
+      "
+        onClick={() => dispatch(authActions.logout())}
+      >
+        Log Out
+      </button>
+      )}
     </Tile>
   )
 }
