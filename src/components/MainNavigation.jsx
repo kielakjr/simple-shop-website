@@ -1,15 +1,10 @@
 import React from 'react'
+import Tile from './ui/Tile'
 
 const MainNavigation = () => {
   return (
-    <header className="
-      flex items-center justify-between p-4 rounded-2xl
-      backdrop-blur-xl
-      border border-white/20
-      text-white
-      shadow-[0_8px_30px_rgb(0,0,0,0.12)]
-      bg-black/30
-      m-4
+    <Tile className="
+      flex items-center justify-between
     ">
       <h1 className="font-semibold text-lg">Simple Shop</h1>
       <input
@@ -29,7 +24,7 @@ const MainNavigation = () => {
       />
 
       <p>Cart: 0 items</p>
-    </header>
+    </Tile>
   )
 }
 
